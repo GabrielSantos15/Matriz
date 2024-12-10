@@ -4,27 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <script defer src="script/script.js"></script>
     <title>Document</title>
 </head>
 
 <body>
     <main>
-        <form id="matriz">
-            <div>
-                <input type="text" class="matriz-value">
-                <input type="text" class="matriz-value">
-                <input type="text" class="matriz-value">
-            </div>
-            <div>
-                <input type="text" class="matriz-value">
-                <input type="text" class="matriz-value">
-                <input type="text" class="matriz-value">
-            </div>
-            <div>
-                <input type="text" class="matriz-value">
-                <input type="text" class="matriz-value">
-                <input type="text" class="matriz-value">
-            </div>
+        <h1>Digite a sua matriz</h1>
+        <section id="matriz">
+            <input id="n1" type="number" class="matriz-value">
+            <input id="n2" type="number" class="matriz-value">
+            <input id="n3" type="number" class="matriz-value">
+
+            <input id="n4" type="number" class="matriz-value">
+            <input id="n5" type="number" class="matriz-value">
+            <input id="n6" type="number" class="matriz-value">
+
+            <input id="n7" type="number" class="matriz-value">
+            <input id="n8" type="number" class="matriz-value">
+            <input id="n9" type="number" class="matriz-value">
+        </section>
+
+        <button onclick="calcular()">Calcular</button>
+
+        <section>
+            <h1>Resultado</h1>
+            <output></output>
+            <details>
+                <summary>Solução</summary>
+            </details>
         </section>
     </main>
 </body>
