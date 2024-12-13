@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
     <script defer src="script/script.js"></script>
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <main>
-        <h1>Digite a sua matriz</h1>
-        <section id="matriz">
-            <input id="n1" type="number" class="matriz-value">
-            <input id="n2" type="number" class="matriz-value">
-            <input id="n3" type="number" class="matriz-value">
+      <h1>Calculadora de Matrizes 3x3</h1>
+      <section>
+        <div id="matriz">
+          <input id="n1" type="number" class="matriz-value" />
+          <input id="n2" type="number" class="matriz-value" />
+          <input id="n3" type="number" class="matriz-value" />
 
-            <input id="n4" type="number" class="matriz-value">
-            <input id="n5" type="number" class="matriz-value">
-            <input id="n6" type="number" class="matriz-value">
+          <input id="n4" type="number" class="matriz-value" />
+          <input id="n5" type="number" class="matriz-value" />
+          <input id="n6" type="number" class="matriz-value" />
 
-            <input id="n7" type="number" class="matriz-value">
-            <input id="n8" type="number" class="matriz-value">
-            <input id="n9" type="number" class="matriz-value">
-        </section>
+          <input id="n7" type="number" class="matriz-value" />
+          <input id="n8" type="number" class="matriz-value" />
+          <input id="n9" type="number" class="matriz-value" />
+        </div>
+      </section>
 
-        <button onclick="calcular()">Calcular</button>
+      <button onclick="calcular()">Calcular</button>
 
-        <section>
-            <h1>Resultado</h1>
-            <output></output>
-            <details>
-                <summary>Solução</summary>
-            </details>
-        </section>
+      <section>
+        <h1>Determinante</h1>
+        <output id="det"></output>
+        <details>
+          <summary>Solução</summary>
+        </details>
+      </section>
     </main>
-</body>
-
+  </body>
 </html>
