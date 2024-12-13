@@ -1,24 +1,114 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+:root {
+  --backgrounColor: #246d5b;
+  --cardColor: #fff;
+  --temaColor: #199778;
+  --buttonColor: #00c290;
 }
-main{
-    text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  display: grid;
+  place-items: center;
+  background-color: var(--backgrounColor);
+  padding: 1em;
+}
+
+main,
+section {
+  padding: 1em;
+}
+
+main {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--cardColor);
+  width: min(600px, 100%);
+  border-radius: 15px;
+  box-shadow: 5px 5px 10px #0000006e;
+}
+
+#matrizSection{
     display: flex;
     flex-direction: column;
+    gap: .5em;
     align-items: center;
-    justify-content: center;
 }
 
-#matriz{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+#matriz {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  border-left: 3px solid #2d2d2d;
+  border-right: 3px solid #2d2d2d;
+  border-radius: 3px;
 }
 
-#matriz input{
-    text-align: center;
-    width: 50px;
-    height: 50px;
+#matriz input {
+  text-align: center;
+  border: 1px solid #8080802c;
+
+  width: min(50px,100%);
+  aspect-ratio: 1/1;
+}
+#matriz input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+button#calcularButton {
+  all: unset;
+  font-weight: bold;
+  font-size: 1.2em;
+
+  padding: 0.1em 0.5em;
+  border-radius: 5px;
+
+  background-color: var(--buttonColor);
+  color: #fff;
+  text-shadow: 1px 1px 1px #0000006e;
+
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+button#calcularButton:hover {
+  background-color: #21423a;
+}
+
+#resultsSection {
+  /* Essa sessão só ficara visivel quando mostrar os resultados */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .5em;
+  width: 100%;
+}
+
+.resultContainer {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  width: min(250px,50%);
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px #00000058;
+}
+
+.resultContainer h3,
+.resultContainer output {
+  padding: 0.2em;
+}
+
+.resultContainer h3 {
+  font-size: 1em;
+  color: #fff;
+  background-color: var(--temaColor);
 }

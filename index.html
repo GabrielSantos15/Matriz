@@ -11,7 +11,8 @@
   <body>
     <main>
       <h1>Calculadora de Matrizes 3x3</h1>
-      <section>
+      <section id="matrizSection">
+        <h2>Escreva os numeros da Matriz</h2>
         <div id="matriz">
           <input id="n1" type="number" class="matriz-value" />
           <input id="n2" type="number" class="matriz-value" />
@@ -27,14 +28,17 @@
         </div>
       </section>
 
-      <button onclick="calcular()">Calcular</button>
-
       <section>
-        <h1>Determinante</h1>
-        <output id="det"></output>
-        <details>
-          <summary>Solução</summary>
-        </details>
+        <button id="calcularButton" onclick="calcular()">Calcular</button>
+        <button id="calcularButton" onclick="limpar()">Limpar</button>
+      </section>
+
+      <section id="resultsSection">
+        <h2>Resultados:</h2>
+        <div class="resultContainer">
+          <h3>Determinante</h3>
+          <output id="det"></output>
+        </div>
       </section>
     </main>
   </body>

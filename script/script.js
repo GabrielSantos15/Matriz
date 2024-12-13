@@ -1,3 +1,5 @@
+const resultsSection = document.querySelector("#resultsSection")
+
 function calcular() {
   // buscando as informações da matriz
   const n1 = parseFloat(document.querySelector("#n1").value);
@@ -16,7 +18,8 @@ function calcular() {
     [n7, n8, n9],
   ];
 
-//   mostra o resultado
+  //   mostra o resultado
+  resultsSection.style.display = "flex"
   document.querySelector("#det").innerHTML = determinante(matriz);
 }
 
@@ -31,4 +34,15 @@ function determinante(m) {
       m[0][0] * m[1][2] * m[2][1] +
       m[0][1] * m[1][0] * m[2][2])
   );
+}
+
+function limpar() {
+   if(!confirm("Você tem certeza que quer apagar os dados da matriz?"))return // confirma se o usuario quer limpar a matriz
+
+  const matrizInputs = document.querySelectorAll(".matriz-value");
+  for (let i = 0; i < matrizInputs.length; i++) {
+    matrizInputs[i].value = ''
+  }
+
+  document.querySelector("#resultsSection").style.display = 'none'
 }
