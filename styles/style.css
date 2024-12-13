@@ -84,14 +84,18 @@ button#calcularButton:hover {
 
 #resultsSection {
   /* Essa sessão só ficara visivel quando mostrar os resultados */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: none;
+  justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
   gap: .5em;
   width: 100%;
 }
 
+#resultsSection h2{
+    flex-grow: 1;
+    width: 100%;
+}
 .resultContainer {
   display: flex;
   flex-direction: column;

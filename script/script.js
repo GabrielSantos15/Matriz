@@ -21,6 +21,7 @@ function calcular() {
   //   mostra o resultado
   resultsSection.style.display = "flex"
   document.querySelector("#det").innerHTML = determinante(matriz);
+  document.querySelector("#alinhamento3P").innerHTML = determinante(matriz) === 0;
 }
 
 function determinante(m) {
