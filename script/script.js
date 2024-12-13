@@ -21,8 +21,11 @@ function calcular() {
   //   mostra o resultado
   resultsSection.style.display = "flex"
   document.querySelector("#det").innerHTML = determinante(matriz);
-  document.querySelector("#alinhamento3P").innerHTML = determinante(matriz) === 0;
+  document.querySelector("#alinhamento3P").innerHTML = determinante(matriz) === 0 ? "Alinhados":"Não alinhados";
+
+  document.querySelector("#triangular").innerHTML = Math.abs(determinante(matriz))/2;
 }
+
 
 function determinante(m) {
   // função calcula a matriz usando a regra de Sarrus
