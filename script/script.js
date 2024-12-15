@@ -22,7 +22,8 @@ function calcular() {
   resultsSection.style.display = "flex"
   document.querySelector("#det").innerHTML = determinante(matriz);
   document.querySelector("#alinhamento3P").innerHTML = determinante(matriz) === 0 ? "Alinhados":"Não alinhados";
-
+  
+  // Calcula a região trianguar com a formula |D|/2
   document.querySelector("#triangular").innerHTML = Math.abs(determinante(matriz))/2;
 }
 
