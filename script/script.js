@@ -1,16 +1,23 @@
 const resultsSection = document.querySelector("#resultsSection")
+const matrizDet = document.querySelector("#matrizDet")
+const matrizEqu = document.querySelector("#matrizEqu")
+const inputEqu = document.querySelector("#equacaoInput")
 
 function calcular() {
   // buscando as informações da matriz
-  const n1 = parseFloat(document.querySelector("#n1").value);
-  const n2 = parseFloat(document.querySelector("#n2").value);
-  const n3 = parseFloat(document.querySelector("#n3").value);
-  const n4 = parseFloat(document.querySelector("#n4").value);
-  const n5 = parseFloat(document.querySelector("#n5").value);
-  const n6 = parseFloat(document.querySelector("#n6").value);
-  const n7 = parseFloat(document.querySelector("#n7").value);
-  const n8 = parseFloat(document.querySelector("#n8").value);
-  const n9 = parseFloat(document.querySelector("#n9").value);
+  if(inputEqu.checked){
+    alert("Essa função não esta finalizada")
+    return
+  }
+  const n1 = Number(document.querySelector("#n1").value);
+  const n2 = Number(document.querySelector("#n2").value);
+  const n3 = Number(document.querySelector("#n3").value);
+  const n4 = Number(document.querySelector("#n4").value);
+  const n5 = Number(document.querySelector("#n5").value);
+  const n6 = Number(document.querySelector("#n6").value);
+  const n7 = Number(document.querySelector("#n7").value);
+  const n8 = Number(document.querySelector("#n8").value);
+  const n9 = Number(document.querySelector("#n9").value);
 
   let matriz = [
     [n1, n2, n3],
@@ -40,6 +47,18 @@ function determinante(m) {
       m[0][1] * m[1][0] * m[2][2])
   );
 }
+
+function equacaoSelect(){
+
+  if(inputEqu.checked ){
+    matrizDet.style.display = "none"
+    matrizEqu.style.display = "grid"
+  }else{
+    matrizDet.style.display = "grid"
+    matrizEqu.style.display = "none"
+  }
+}
+
 
 function limpar() {
    if(!confirm("Você tem certeza que quer apagar os dados da matriz?"))return // confirma se o usuario quer limpar a matriz

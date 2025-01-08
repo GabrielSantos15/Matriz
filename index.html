@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,8 +12,11 @@
     <main>
       <h1>Calculadora de Matrizes 3x3</h1>
       <section id="matrizSection">
-        <h2>Escreva os numeros da Matriz</h2>
-        <div id="matriz"> 
+        <h2>Escreva os números da Matriz</h2>
+
+        <!-- Matriz da determinante -->
+
+        <div class="matriz" id="matrizDet"> 
           <input id="n1" type="number" class="matriz-value" />
           <input id="n2" type="number" class="matriz-value" />
           <input id="n3" type="number" class="matriz-value" />
@@ -26,6 +29,26 @@
           <input id="n8" type="number" class="matriz-value" />
           <input id="n9" type="number" class="matriz-value" />
         </div>
+
+        <!-- Matriz da  Equação geral da reta -->
+
+        <div class="matriz" id="matrizEqu"> 
+          <input type="number" placeholder="Xa"/>
+          <input type="number" placeholder="Ya" />
+          <input type="number" value="1" readonly  />
+
+          <input type="number" placeholder="Xb"/>
+          <input type="number" placeholder="Yb"/>
+          <input type="number" value="1" readonly  />
+
+          <input type="text" value="X" readonly />
+          <input type="text" value="Y" readonly />
+          <input type="number" value="1" readonly />
+        </div>
+        <span class="equacaoContainer">
+          <input type="checkbox" name="equacaoInput" id="equacaoInput" oninput="equacaoSelect()">
+          <label for="equacaoInput"> Equação geral da reta</label>
+        </span>
       </section>
 
       <section>

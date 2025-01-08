@@ -32,21 +32,21 @@ main {
   background-color: var(--cardColor);
   width: min(600px, 100%);
   border-radius: 15px;
-  box-shadow: -5px -5px 10px #ffffff51,5px 5px 10px #00000026;
+  box-shadow: -5px -5px 10px #ffffff51, 5px 5px 10px #00000026;
 }
 
-#matrizSection{
-    display: flex;
-    flex-direction: column;
-    gap: .5em;
-    align-items: center;
+#matrizSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  align-items: center;
 }
 
-#matrizSection h2{
+#matrizSection h2 {
   font-weight: normal;
 }
 
-#matriz {
+.matriz {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 
@@ -55,22 +55,30 @@ main {
   border-radius: 3px;
 }
 
-#matriz input {
+.matriz input {
   text-align: center;
   border: 1px solid #8080802c;
   background-color: #f5f5f5;
 
-  width: min(60px,100%);
+  width: min(60px, 100%);
   aspect-ratio: 1/1;
   outline-color: var(--temaColor);
 }
 
-#matriz input::-webkit-inner-spin-button {
+.matriz input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
-#matriz input:focus{
+.matriz input:focus {
   background-color: #fff;
+}
+
+#matrizEqu {
+  display: none;
+}
+
+.equacaoContainer input {
+
 }
 
 button#calcularButton {
@@ -99,22 +107,22 @@ button#calcularButton:hover {
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  gap: .5em;
+  gap: 0.5em;
   width: 100%;
 }
 
-#resultsSection h2{
-    flex-grow: 1;
-    width: 100%;
+#resultsSection h2 {
+  flex-grow: 1;
+  width: 100%;
 }
 .resultContainer {
   display: flex;
   flex-direction: column;
   overflow: hidden;
 
-  width: min(250px,100%);
+  width: min(250px, 100%);
   border-radius: 5px;
-  box-shadow:  2px 2px 5px #00000028;
+  box-shadow: 2px 2px 5px #00000028;
 }
 
 .resultContainer h3,
