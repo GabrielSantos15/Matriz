@@ -46,7 +46,7 @@
           <input type="number" value="1" readonly />
         </div>
         <span class="equacaoContainer">
-          <input type="checkbox" name="equacaoInput" id="equacaoInput" oninput="equacaoSelect()">
+          <input  type="checkbox" name="equacaoInput" id="equacaoInput" oninput="equacaoSelect()">
           <label for="equacaoInput"> Equação geral da reta</label>
         </span>
       </section>
@@ -56,7 +56,7 @@
         <button id="calcularButton" onclick="limpar()">Limpar</button>
       </section>
 
-      <section id="resultsSection">
+      <section class="resultsSection" id="resultsSectionDet">
         <h2>Resultados:</h2>
         <div class="resultContainer">
           <h3>Determinante</h3>
@@ -69,6 +69,15 @@
         <div class="resultContainer">
           <h3>Região triangular</h3>
           <output id="triangular"></output>
+        </div>
+      </section>
+
+      <section class="resultsSection" id="resultsSectionEqu">
+        <h2>Resultados:</h2>
+        <div class="resultContainer">
+          <h3>Equação geral da reta:</h3>
+          <output id="equacao"></output>
+          <iframe src="https://www.desmos.com/calculator/-2x + y + 3 = 0" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
         </div>
       </section>
     </main>

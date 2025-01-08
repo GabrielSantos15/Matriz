@@ -77,9 +77,6 @@ main {
   display: none;
 }
 
-.equacaoContainer input {
-
-}
 
 button#calcularButton {
   all: unset;
@@ -101,7 +98,7 @@ button#calcularButton:hover {
   background-color: #01408e;
 }
 
-#resultsSection {
+.resultsSection {
   /* Essa sessão só ficara visivel quando mostrar os resultados */
   display: none;
   justify-content: space-around;
@@ -111,7 +108,7 @@ button#calcularButton:hover {
   width: 100%;
 }
 
-#resultsSection h2 {
+.resultsSection h2 {
   flex-grow: 1;
   width: 100%;
 }
@@ -134,4 +131,8 @@ button#calcularButton:hover {
   font-size: 1em;
   color: #fff;
   background-color: var(--temaColor);
+}
+
+canvas{
+  width: 100%;
 }

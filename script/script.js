@@ -1,7 +1,14 @@
-const resultsSection = document.querySelector("#resultsSection");
+const resultsSectionDet = document.querySelector("#resultsSectionDet");
+const resultsSectionEqu = document.querySelector("#resultsSectionEqu");
 const matrizDet = document.querySelector("#matrizDet");
 const matrizEqu = document.querySelector("#matrizEqu");
 const inputEqu = document.querySelector("#equacaoInput");
+
+const canvas = document.querySelector("canvas");
+const ctx = canvas.getContext("2d");
+canvas.height = 1000;
+canvas.width = 1000;
+ctx.translate(canvas.width/2,canvas.height/2)
 
 function calcular() {
   // buscando as informações da matriz
@@ -23,7 +30,8 @@ function calcular() {
     ];
 
     //   mostra o resultado
-    resultsSection.style.display = "flex";
+    resultsSectionEqu.style.display = "none";
+    resultsSectionDet.style.display = "flex";
     document.querySelector("#det").innerHTML = determinante(matriz);
     document.querySelector("#alinhamento3P").innerHTML =
       determinante(matriz) === 0 ? "Alinhados" : "Não alinhados";
@@ -31,11 +39,14 @@ function calcular() {
     // Calcula a região trianguar com a formula |D|/2
     document.querySelector("#triangular").innerHTML =
       Math.abs(determinante(matriz)) / 2;
-  }else{
+  } else {
     const xa = Number(document.querySelector("#xa").value);
     const ya = Number(document.querySelector("#ya").value);
     const xb = Number(document.querySelector("#xb").value);
     const yb = Number(document.querySelector("#yb").value);
+
+    resultsSectionEqu.style.display = "flex";
+    resultsSectionDet.style.display = "none";
 
     // formula padrão:
     // Xa*Yb*1 + Ya*1*x + 1*Xb*y - 1*Yb*X - Xa*1*Y - Ya*Xb*1 = 0
@@ -44,11 +55,14 @@ function calcular() {
     // y = ax + b
 
     // a = Δy/Δx
-    const a = (yb - ya)/(xb - xa)
+    const a = (yb - ya) / (xb - xa);
     // y = ax + b --> Ya = aXa + b --> b = Ya - aXa
-    const b = ya - a*xa
+    const b = ya - a * xa;
+
     // y = ax + b --> -ax + y - b = 0
-    alert(`${-a}x + y ${-b > 0 ? "+ "+ -b: -b } = 0`)
+    document.querySelector("#equacao").innerHTML = `${-a}x + y ${
+      -b > 0 ? "+ " + -b : -b
+    } = 0`;
   }
 }
 
