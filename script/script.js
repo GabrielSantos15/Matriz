@@ -1,39 +1,56 @@
-const resultsSection = document.querySelector("#resultsSection")
-const matrizDet = document.querySelector("#matrizDet")
-const matrizEqu = document.querySelector("#matrizEqu")
-const inputEqu = document.querySelector("#equacaoInput")
+const resultsSection = document.querySelector("#resultsSection");
+const matrizDet = document.querySelector("#matrizDet");
+const matrizEqu = document.querySelector("#matrizEqu");
+const inputEqu = document.querySelector("#equacaoInput");
 
 function calcular() {
   // buscando as informações da matriz
-  if(inputEqu.checked){
-    alert("Essa função não esta finalizada")
-    return
+  if (!inputEqu.checked) {
+    const n1 = Number(document.querySelector("#n1").value);
+    const n2 = Number(document.querySelector("#n2").value);
+    const n3 = Number(document.querySelector("#n3").value);
+    const n4 = Number(document.querySelector("#n4").value);
+    const n5 = Number(document.querySelector("#n5").value);
+    const n6 = Number(document.querySelector("#n6").value);
+    const n7 = Number(document.querySelector("#n7").value);
+    const n8 = Number(document.querySelector("#n8").value);
+    const n9 = Number(document.querySelector("#n9").value);
+
+    let matriz = [
+      [n1, n2, n3],
+      [n4, n5, n6],
+      [n7, n8, n9],
+    ];
+
+    //   mostra o resultado
+    resultsSection.style.display = "flex";
+    document.querySelector("#det").innerHTML = determinante(matriz);
+    document.querySelector("#alinhamento3P").innerHTML =
+      determinante(matriz) === 0 ? "Alinhados" : "Não alinhados";
+
+    // Calcula a região trianguar com a formula |D|/2
+    document.querySelector("#triangular").innerHTML =
+      Math.abs(determinante(matriz)) / 2;
+  }else{
+    const xa = Number(document.querySelector("#xa").value);
+    const ya = Number(document.querySelector("#ya").value);
+    const xb = Number(document.querySelector("#xb").value);
+    const yb = Number(document.querySelector("#yb").value);
+
+    // formula padrão:
+    // Xa*Yb*1 + Ya*1*x + 1*Xb*y - 1*Yb*X - Xa*1*Y - Ya*Xb*1 = 0
+
+    // feito com base no video: https://www.youtube.com/watch?v=j0dU93bKML8
+    // y = ax + b
+
+    // a = Δy/Δx
+    const a = (yb - ya)/(xb - xa)
+    // y = ax + b --> Ya = aXa + b --> b = Ya - aXa
+    const b = ya - a*xa
+    // y = ax + b --> -ax + y - b = 0
+    alert(`${-a}x + y ${-b > 0 ? "+ "+ -b: -b } = 0`)
   }
-  const n1 = Number(document.querySelector("#n1").value);
-  const n2 = Number(document.querySelector("#n2").value);
-  const n3 = Number(document.querySelector("#n3").value);
-  const n4 = Number(document.querySelector("#n4").value);
-  const n5 = Number(document.querySelector("#n5").value);
-  const n6 = Number(document.querySelector("#n6").value);
-  const n7 = Number(document.querySelector("#n7").value);
-  const n8 = Number(document.querySelector("#n8").value);
-  const n9 = Number(document.querySelector("#n9").value);
-
-  let matriz = [
-    [n1, n2, n3],
-    [n4, n5, n6],
-    [n7, n8, n9],
-  ];
-
-  //   mostra o resultado
-  resultsSection.style.display = "flex"
-  document.querySelector("#det").innerHTML = determinante(matriz);
-  document.querySelector("#alinhamento3P").innerHTML = determinante(matriz) === 0 ? "Alinhados":"Não alinhados";
-  
-  // Calcula a região trianguar com a formula |D|/2
-  document.querySelector("#triangular").innerHTML = Math.abs(determinante(matriz))/2;
 }
-
 
 function determinante(m) {
   // função calcula a matriz usando a regra de Sarrus
@@ -48,25 +65,23 @@ function determinante(m) {
   );
 }
 
-function equacaoSelect(){
-
-  if(inputEqu.checked ){
-    matrizDet.style.display = "none"
-    matrizEqu.style.display = "grid"
-  }else{
-    matrizDet.style.display = "grid"
-    matrizEqu.style.display = "none"
+function equacaoSelect() {
+  if (inputEqu.checked) {
+    matrizDet.style.display = "none";
+    matrizEqu.style.display = "grid";
+  } else {
+    matrizDet.style.display = "grid";
+    matrizEqu.style.display = "none";
   }
 }
 
-
 function limpar() {
-   if(!confirm("Você tem certeza que quer apagar os dados da matriz?"))return // confirma se o usuario quer limpar a matriz
+  if (!confirm("Você tem certeza que quer apagar os dados da matriz?")) return; // confirma se o usuario quer limpar a matriz
 
   const matrizInputs = document.querySelectorAll(".matriz-value");
   for (let i = 0; i < matrizInputs.length; i++) {
-    matrizInputs[i].value = ''
+    matrizInputs[i].value = "";
   }
 
-  document.querySelector("#resultsSection").style.display = 'none'
+  document.querySelector("#resultsSection").style.display = "none";
 }
