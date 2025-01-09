@@ -4,15 +4,13 @@ const matrizDet = document.querySelector("#matrizDet");
 const matrizEqu = document.querySelector("#matrizEqu");
 const inputEqu = document.querySelector("#equacaoInput");
 
-const canvas = document.querySelector("canvas");
-const ctx = canvas.getContext("2d");
-canvas.height = 1000;
-canvas.width = 1000;
-ctx.translate(canvas.width/2,canvas.height/2)
+google.charts.load('current', {packages: ['corechart']});
+google.charts.setOnLoadCallback(drawChart);
 
 function calcular() {
-  // buscando as informações da matriz
+  // verifica se a calculadora esta no modo Equação geral da reta
   if (!inputEqu.checked) {
+    // buscando as informações da matriz
     const n1 = Number(document.querySelector("#n1").value);
     const n2 = Number(document.querySelector("#n2").value);
     const n3 = Number(document.querySelector("#n3").value);
@@ -40,6 +38,7 @@ function calcular() {
     document.querySelector("#triangular").innerHTML =
       Math.abs(determinante(matriz)) / 2;
   } else {
+    // buscando os dados do ponta A e B
     const xa = Number(document.querySelector("#xa").value);
     const ya = Number(document.querySelector("#ya").value);
     const xb = Number(document.querySelector("#xb").value);
@@ -63,6 +62,26 @@ function calcular() {
     document.querySelector("#equacao").innerHTML = `${-a}x + y ${
       -b > 0 ? "+ " + -b : -b
     } = 0`;
+
+    // Chamando API do google para adicionar o gráfico
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['X', 'Y'],
+        [xa, ya], [xb, yb],
+     ]);
+    
+     var options = {
+      hAxis: {title: 'X',minValue: -10,maxValue: 10},
+      vAxis: {title: 'Y',minValue: -10,maxValue: 10},
+      legend: 'none',
+      colors: ['#32746D'],
+      trendlines: { 0: {} }    // Draw a trendline for data series 0.
+    };
+    
+      var chart = new google.visualization.ScatterChart(document.getElementById('grafico'));
+      chart.draw(data, options);
+    }
   }
 }
 
@@ -91,6 +110,11 @@ function equacaoSelect() {
 
 function limpar() {
   if (!confirm("Você tem certeza que quer apagar os dados da matriz?")) return; // confirma se o usuario quer limpar a matriz
+
+  resultsSectionEqu.style.display = "none";
+  resultsSectionDet.style.display = "none";
+  
+  navigator.vibrate(250) // vibra o celular por 250ms. 
 
   const matrizInputs = document.querySelectorAll(".matriz-value");
   for (let i = 0; i < matrizInputs.length; i++) {

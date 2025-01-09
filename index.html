@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/style.css" />
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script defer src="script/script.js"></script>
     <title>Document</title>
   </head>
@@ -74,10 +75,10 @@
 
       <section class="resultsSection" id="resultsSectionEqu">
         <h2>Resultados:</h2>
-        <div class="resultContainer">
+        <div class="resultContainer" style="width: 100%;">
           <h3>Equação geral da reta:</h3>
           <output id="equacao"></output>
-          <iframe src="https://www.desmos.com/calculator/-2x + y + 3 = 0" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+          <div id="grafico"/>
         </div>
       </section>
     </main>
