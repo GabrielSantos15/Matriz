@@ -58,9 +58,10 @@ function calcular() {
     // y = ax + b --> Ya = aXa + b --> b = Ya - aXa
     const b = ya - a * xa;
 
+    console.log(a.typeof)
     // y = ax + b --> -ax + y - b = 0
-    document.querySelector("#equacao").innerHTML = `${-a}x + y ${
-      -b > 0 ? "+ " + -b : -b
+    document.querySelector("#equacao").innerHTML = `${-a.toFixed(3)}x + y ${
+      -b.toFixed(3) > 0 ? "+ " + -b.toFixed(3) : -b.toFixed(3)
     } = 0`;
 
     // Chamando API do google para adicionar o gráfico

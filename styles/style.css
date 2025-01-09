@@ -1,6 +1,6 @@
 :root {
-  --backgrounColor: #32746D;
-  --cardColor: #b5dfc3;
+  --backgrounColor: #46a39a;
+  --cardColor: #bfeacd;
   --temaColor: #044a24;
   --buttonColor: #036a32;
 }
@@ -53,6 +53,7 @@ main {
   border-left: 3px solid #2d2d2d;
   border-right: 3px solid #2d2d2d;
   border-radius: 3px;
+  background-color: #fff;
 }
 
 .matriz input {
@@ -71,6 +72,10 @@ main {
 
 .matriz input:focus {
   background-color: #fff;
+}
+
+.matriz input[readonly]{
+  background-color: #00000022;
 }
 
 #matrizEqu {
