@@ -3,13 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/style.css" />
     <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css" />
     <script defer src="script/script.js"></script>
-    <title>Document</title>
+    <title>Matriz</title>
   </head>
 
-  <body>
+  <body >
+    <div id="darkModeContainer">
+      <span id="darkMode" class="material-icons" onclick="darkMode()">light_mode</span>
+      
+    </div>
     <main>
       <h1>Calculadora de Matrizes 3x3</h1>
       <section id="matrizSection">
@@ -17,7 +23,7 @@
 
         <!-- Matriz da determinante -->
 
-        <div class="matriz" id="matrizDet"> 
+        <div class="matriz" id="matrizDet">
           <input id="n1" type="number" class="matriz-value" />
           <input id="n2" type="number" class="matriz-value" />
           <input id="n3" type="number" class="matriz-value" />
@@ -33,28 +39,33 @@
 
         <!-- Matriz da  Equação geral da reta -->
 
-        <div class="matriz" id="matrizEqu"> 
-          <input id="xa" type="number" placeholder="Xa" class="matriz-value"/>
+        <div class="matriz" id="matrizEqu">
+          <input id="xa" type="number" placeholder="Xa" class="matriz-value" />
           <input id="ya" type="number" placeholder="Ya" class="matriz-value" />
-          <input type="number" value="1" readonly  />
+          <input type="number" value="1" readonly />
 
-          <input id="xb" type="number" placeholder="Xb" class="matriz-value"/>
-          <input id="yb" type="number" placeholder="Yb" class="matriz-value"/>
-          <input type="number" value="1" readonly  />
+          <input id="xb" type="number" placeholder="Xb" class="matriz-value" />
+          <input id="yb" type="number" placeholder="Yb" class="matriz-value" />
+          <input type="number" value="1" readonly />
 
           <input type="text" value="X" readonly />
           <input type="text" value="Y" readonly />
           <input type="number" value="1" readonly />
         </div>
         <span class="equacaoContainer">
-          <input  type="checkbox" name="equacaoInput" id="equacaoInput" oninput="equacaoSelect()">
+          <input
+            type="checkbox"
+            name="equacaoInput"
+            id="equacaoInput"
+            oninput="equacaoSelect()"
+          />
           <label for="equacaoInput"> Equação geral da reta</label>
         </span>
       </section>
 
       <section>
-        <button id="calcularButton" onclick="calcular()">Calcular</button>
-        <button id="calcularButton" onclick="limpar()">Limpar</button>
+        <button class="button" onclick="calcular()">Calcular</button>
+        <button class="button" id="limparButton" onclick="limpar()">Limpar</button>
       </section>
 
       <section class="resultsSection" id="resultsSectionDet">
@@ -75,10 +86,10 @@
 
       <section class="resultsSection" id="resultsSectionEqu">
         <h2>Resultados:</h2>
-        <div class="resultContainer" style="width: 100%;">
+        <div class="resultContainer" style="width: 100%">
           <h3>Equação geral da reta:</h3>
           <output id="equacao"></output>
-          <div id="grafico"/>
+          <div id="grafico" />
         </div>
       </section>
     </main>

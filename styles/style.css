@@ -1,25 +1,51 @@
 :root {
-  --backgrounColor: #46a39a;
-  --cardColor: #bfeacd;
-  --temaColor: #044a24;
-  --buttonColor: #036a32;
+  --backgrounColor: #a3d7ad;
+  --cardColor: #f2f5f2;
+  --temaColor: #147529;
+  --buttonColor: #10a428;
+
+  --backgrounColorDark: #121212;
+  --cardColorDark:#2d2d2d;
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
+
 body {
   display: grid;
   place-items: center;
   background-color: var(--backgrounColor);
   padding: 1em;
+  transition: all .2s;
+}
+body.dark{
+  background-color: var(--backgrounColorDark);
 }
 
 main,
 section {
   padding: 1em;
+}
+
+#darkModeContainer{
+  display: flex;
+  justify-content: end;
+  width: 100%;
+}
+
+#darkMode{
+background-color: var(--cardColor);
+padding: 5px;
+border-radius: 50%;
+cursor: pointer;
+}
+.dark #darkMode{
+  color: #fff;
+  background-color: var(--cardColorDark);
 }
 
 main {
@@ -32,7 +58,12 @@ main {
   background-color: var(--cardColor);
   width: min(600px, 100%);
   border-radius: 15px;
-  box-shadow:inset -5px -5px 10px #ffffff51, 5px 5px 10px #00000026;
+  box-shadow:inset -5px -5px 20px #ffffff51, 5px 5px 10px #00000026;
+}
+.dark main{
+  box-shadow: inset -5px -5px 20px #72727220, 5px 5px 10px #000000;
+  color: #fff;
+  background-color: var(--cardColorDark);
 }
 
 #matrizSection {
@@ -86,7 +117,7 @@ input#equacaoInput{
   accent-color: var(--temaColor);
 }
 
-button#calcularButton {
+button.button {
   all: unset;
   font-weight: bold;
   font-size: 1.2em;
@@ -96,14 +127,18 @@ button#calcularButton {
 
   background-color: var(--buttonColor);
   color: #fff;
-  text-shadow: 1px 1px 1px #0000006e;
+  text-shadow: 1px 1px 2px #00000086;
 
   transition: 0.2s;
   cursor: pointer;
 }
 
-button#calcularButton:hover {
+button.button:hover {
   background-color: var(--temaColor);
+}
+
+button#limparButton{
+  background-color: #a41010;
 }
 
 .resultsSection {
@@ -130,6 +165,11 @@ button#calcularButton:hover {
   border-radius: 5px;
   box-shadow: inset -2px -2px 5px #ffffff28, 2px 2px 5px #00000028;
 }
+.dark .resultContainer{
+  filter: brightness(.9);
+  box-shadow: none;
+  color: #000;
+}
 
 .resultContainer h3,
 .resultContainer output {
@@ -141,6 +181,8 @@ button#calcularButton:hover {
   color: #fff;
   background-color: var(--temaColor);
 }
+
+
 
 #grafico{
   height: 100%;

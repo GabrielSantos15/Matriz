@@ -4,8 +4,7 @@ const matrizDet = document.querySelector("#matrizDet");
 const matrizEqu = document.querySelector("#matrizEqu");
 const inputEqu = document.querySelector("#equacaoInput");
 
-google.charts.load('current', {packages: ['corechart']});
-google.charts.setOnLoadCallback(drawChart);
+google.charts.load("current", { packages: ["corechart"] });
 
 function calcular() {
   // verifica se a calculadora esta no modo Equação geral da reta
@@ -58,29 +57,32 @@ function calcular() {
     // y = ax + b --> Ya = aXa + b --> b = Ya - aXa
     const b = ya - a * xa;
 
-    console.log(a.typeof)
     // y = ax + b --> -ax + y - b = 0
-    document.querySelector("#equacao").innerHTML = `${-a.toFixed(3)}x + y ${
-      -b.toFixed(3) > 0 ? "+ " + -b.toFixed(3) : -b.toFixed(3)
+    document.querySelector("#equacao").innerHTML = `${-a}x + y ${
+      -b > 0 ? "+ " + -b: "- " + b
     } = 0`;
 
     // Chamando API do google para adicionar o gráfico
     google.charts.setOnLoadCallback(drawChart);
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
-        ['X', 'Y'],
-        [xa, ya], [xb, yb],
-     ]);
-    
-     var options = {
-      hAxis: {title: 'X',minValue: -10,maxValue: 10},
-      vAxis: {title: 'Y',minValue: -10,maxValue: 10},
-      legend: 'none',
-      colors: ['#32746D'],
-      trendlines: { 0: {} }    // Draw a trendline for data series 0.
-    };
-    
-      var chart = new google.visualization.ScatterChart(document.getElementById('grafico'));
+        ["X", "Y"],
+        [xa, ya],
+        [xb, yb],
+      ]);
+
+      var options = {
+        chartArea: { width: "80%", height: "65%" },
+        hAxis: { title: "X", minValue: -10, maxValue: 10 },
+        vAxis: { title: "Y", minValue: -10, maxValue: 10 },
+        legend: "none",
+        colors: ["#147529"],
+        trendlines: { 0: {} }, // Draw a trendline for data series 0.
+      };
+
+      var chart = new google.visualization.ScatterChart(
+        document.getElementById("grafico")
+      );
       chart.draw(data, options);
     }
   }
@@ -110,12 +112,10 @@ function equacaoSelect() {
 }
 
 function limpar() {
-  if (!confirm("Você tem certeza que quer apagar os dados da matriz?")) return; // confirma se o usuario quer limpar a matriz
-
   resultsSectionEqu.style.display = "none";
   resultsSectionDet.style.display = "none";
-  
-  navigator.vibrate(250) // vibra o celular por 250ms. 
+
+  navigator.vibrate(250); // vibra o celular por 250ms.
 
   const matrizInputs = document.querySelectorAll(".matriz-value");
   for (let i = 0; i < matrizInputs.length; i++) {
@@ -123,4 +123,27 @@ function limpar() {
   }
 
   document.querySelector("#resultsSection").style.display = "none";
+}
+
+function recuperarDarkMode() {
+  const storageDark = localStorage.getItem("dark");
+  if (storageDark) darkMode();
+}
+recuperarDarkMode();
+
+function darkMode() {
+  const body = document.querySelector("body");
+  const buttonDarkMode = document.querySelector("#darkMode");
+  
+  localStorage.clear();
+  
+  if (body.classList.contains("dark")) {
+    body.classList.remove("dark");
+    buttonDarkMode.innerHTML = "light_mode";
+  } else {
+    body.classList.add("dark");
+    localStorage.setItem("dark", 1);
+    
+    buttonDarkMode.innerHTML = "dark_mode";
+  }
 }
