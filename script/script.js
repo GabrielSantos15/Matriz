@@ -53,9 +53,13 @@ function calcular() {
     // y = ax + b
 
     // a = Δy/Δx
-    const a = (yb - ya) / (xb - xa);
+    let a = (yb - ya) / (xb - xa);
     // y = ax + b --> Ya = aXa + b --> b = Ya - aXa
-    const b = ya - a * xa;
+    let b = ya - a * xa;
+
+    // abreviando
+    a = Math.round(a*1000)/1000
+    b = Math.round(b*1000)/1000
 
     // y = ax + b --> -ax + y - b = 0
     document.querySelector("#equacao").innerHTML = `${-a}x + y ${

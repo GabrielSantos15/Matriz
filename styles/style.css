@@ -19,7 +19,6 @@ body {
   display: grid;
   place-items: center;
   background-color: var(--backgrounColor);
-  padding: 1em;
   transition: all .2s;
 }
 body.dark{
@@ -35,6 +34,7 @@ section {
   display: flex;
   justify-content: end;
   width: 100%;
+  padding: .5em;
 }
 
 #darkMode{
@@ -81,8 +81,8 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 
-  border-left: 3px solid #2d2d2d;
-  border-right: 3px solid #2d2d2d;
+  border-left: 3px solid #000000;
+  border-right: 3px solid #000000;
   border-radius: 3px;
   background-color: #fff;
 }
@@ -134,7 +134,7 @@ button.button {
 }
 
 button.button:hover {
-  background-color: var(--temaColor);
+ filter: brightness(.85);
 }
 
 button#limparButton{
